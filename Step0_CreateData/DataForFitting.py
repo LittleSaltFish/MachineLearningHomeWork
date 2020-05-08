@@ -15,7 +15,7 @@ import random
 k = 0.5
 b = 10
 chaos_x = 5
-chaos_y = 10
+chaos_y = 50
 x = 0
 
 # Create data
