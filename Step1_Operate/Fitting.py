@@ -76,7 +76,7 @@ def draw(dots, set_k, set_b, number, count, timeuse):
             plt.annotate("best match",xy=(x[1]/2,y[1]/2),xytext=(x[1]/2,y[1]),arrowprops=dict(arrowstyle='->'))
     plt.scatter([x[0] for x in dots], [x[1] for x in dots], c='b')
     plt.title('FittingResults')
-    plt.text(0,200,'timeuse='+str(timeuse)+"s\nround="+str(count))
+    plt.text(min([x[0] for x in dots]),max([x[1] for x in dots])/2,'timeuse='+str(timeuse)+"s\nround="+str(count))
     plt.savefig('../Data&Results/Fitting/FittingResult.png')
     plt.show()
 
