@@ -40,7 +40,7 @@ def Fitting(dots, StepLength_k, StepLength_b, k, b):
         if abs(StepLength_k * sum_k / len(dots)) < 1e-5 and abs(StepLength_b * sum_b / len(dots)) < 1e-5:
             break
         end = time.time()
-        timeuse = round(end - start,5)
+        timeuse = round(end - start, 5)
     return set_k, set_b, count, timeuse
 
 
@@ -72,11 +72,13 @@ def draw(dots, set_k, set_b, number, count, timeuse):
         x = [min(x[0] for x in dots), max(x[0] for x in dots)]
         y = [set_k[i] * x[0] + set_b[i], set_k[i] * x[1] + set_b[i]]
         plt.plot(x, y, color=color)
-        if i==int(set_i[-1]):
-            plt.annotate("best match",xy=(x[1]/2,y[1]/2),xytext=(x[1]/2,y[1]),arrowprops=dict(arrowstyle='->'))
+        if i == int(set_i[-1]):
+            plt.annotate("best match", xy=(x[1] / 2, y[1] / 2), xytext=(x[1] / 2, y[1]),
+                         arrowprops=dict(arrowstyle='->'))
     plt.scatter([x[0] for x in dots], [x[1] for x in dots], c='b')
     plt.title('FittingResults')
-    plt.text(min([x[0] for x in dots]),max([x[1] for x in dots])/2,'timeuse='+str(timeuse)+"s\nround="+str(count))
+    plt.text(min([x[0] for x in dots]), max([x[1] for x in dots]) / 2,
+             'timeuse=' + str(timeuse) + "s\nround=" + str(count))
     plt.savefig('../Data&Results/Fitting/FittingResult.png')
     plt.show()
 
