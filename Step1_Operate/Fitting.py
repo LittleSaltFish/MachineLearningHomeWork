@@ -17,7 +17,7 @@ def Init():
     StepLength_b = 0.000001
     k = 0
     b = 0
-    number = 50
+    number = 20
     return StepLength_k, StepLength_b, k, b, number
 
 
@@ -25,7 +25,7 @@ def Fitting(dots, StepLength_k, StepLength_b, k, b):
     start = time.time()
     set_k = []
     set_b = []
-    count = 0
+    count = -1
     for j in range(0, 1000):
         sum_k = 0
         sum_b = 0
@@ -36,8 +36,8 @@ def Fitting(dots, StepLength_k, StepLength_b, k, b):
         b = b - StepLength_b * sum_b / len(dots)
         set_k.append(k)
         set_b.append(b)
-        count = j
         if abs(StepLength_k * sum_k / len(dots)) < 1e-5 and abs(StepLength_b * sum_b / len(dots)) < 1e-5:
+            count = j
             break
         end = time.time()
         timeuse = round(end - start, 5)
@@ -47,7 +47,7 @@ def Fitting(dots, StepLength_k, StepLength_b, k, b):
 # Read the data
 def ReadData():
     dots = []
-    filename = "data.txt"
+    filename = "FittingData.txt"
     file_path = '../Data&Results/Fitting/' + filename
     with open(file_path) as file:
         for line in file:
@@ -72,8 +72,9 @@ def draw(dots, set_k, set_b, number, count, timeuse):
         x = [min(x[0] for x in dots), max(x[0] for x in dots)]
         y = [set_k[i] * x[0] + set_b[i], set_k[i] * x[1] + set_b[i]]
         plt.plot(x, y, color=color)
+        plt.text(x[1], y[1], "No." + str(i))
         if i == int(set_i[-1]):
-            plt.annotate("best match", xy=(x[1] / 2, y[1] / 2), xytext=(x[1] / 2, y[1]),
+            plt.annotate("best match", xy=((x[1] + x[0]) / 2, (y[1] + y[0]) / 2), xytext=(x[1] / 2, y[1]),
                          arrowprops=dict(arrowstyle='->'))
     plt.scatter([x[0] for x in dots], [x[1] for x in dots], c='b')
     plt.title('FittingResults')
