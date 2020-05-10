@@ -6,7 +6,6 @@
 @Tool : PyCharm
 
 """
-import numpy as np
 import mayavi.mlab as mlab
 from mpl_toolkits.mplot3d import Axes3D
 from pylab import *
