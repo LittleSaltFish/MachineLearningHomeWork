@@ -10,6 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 
+
 # Parameter settings
 def Init():
     '''create dots surrounded by line"kx+b" '''

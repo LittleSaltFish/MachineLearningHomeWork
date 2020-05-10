@@ -9,6 +9,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import time
+import Step1_Operate
 
 
 # Parameter settings
@@ -82,6 +83,9 @@ def draw(dots, set_k, set_b, number, count, timeuse):
              'timeuse=' + str(timeuse) + "s\nround=" + str(count))
     plt.savefig('../Data&Results/Fitting/FittingResult.png')
     plt.show()
+
+
+# def View3D(dots,set_k,set_b,number):
 
 
 # main function
