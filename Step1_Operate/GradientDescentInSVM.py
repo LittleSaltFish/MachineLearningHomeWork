@@ -99,7 +99,7 @@ def draw(dots, set_k, set_b, number, count, timeuse):
     plt.rcParams['figure.dpi'] = 300
     plt.text(min([x[0] for x in dots]), max([x[1] for x in dots]) / 2,
              'timeuse=' + str(timeuse) + "s\nround=" + str(count))
-    plt.savefig('../Data&Results/Classify/SVMResult.png')
+    plt.savefig('../Data&Results/Classify/SVMResult（GradientDEscent）.png')
     plt.show()
     return eg_k, eg_b
 
@@ -136,7 +136,8 @@ def DrawAndSaveDis_matplot(m_k, m_b, m_z, eg_k, eg_b, eg_z):
     plt.rcParams['savefig.dpi'] = 300
     plt.rcParams['figure.dpi'] = 300
     ax.view_init(50, 60)
-    savefig('../Data&Results/Classify/3DResult.png')
+    plt.title("3DResult")
+    savefig('../Data&Results/Classify/3DResult.png', bbox_inches='tight')
     plt.show()
 
 
