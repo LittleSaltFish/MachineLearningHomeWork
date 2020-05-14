@@ -59,8 +59,8 @@ def DrawAndSaveData(set_results, support, name, dir):
     plt.scatter([dot[0] for dot in draw_n2], [dot[1] for dot in draw_n2], c='r', marker='x',
                 label="normal dots surround by dot2")
     plt.title(name)
-    plt.savefig(dir + name + ".png")
     plt.legend()
+    plt.savefig(dir + name + ".png")
     plt.show()
 
 
