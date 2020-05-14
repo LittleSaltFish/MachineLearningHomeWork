@@ -37,13 +37,30 @@ def TrainAndTest(trainset, testset):
 
 
 def DrawAndSaveData(set_results, support, name, dir):
+    draw_s1 = []
+    draw_s2 = []
+    draw_n1 = []
+    draw_n2 = []
     for i in range(0, len(set_results)):
-        if i in support:
-            plt.scatter(set_results[i][0], set_results[i][1], c='b' if set_results[i][2] == 1 else 'r', marker='+')
-        else:
-            plt.scatter(set_results[i][0], set_results[i][1], c='b' if set_results[i][2] == 1 else 'r')
+        if i in support and set_results[i][2] == 1:
+            draw_s1.append([set_results[i][0], set_results[i][1], set_results[i][2]])
+        elif i in support and set_results[i][2] == -1:
+            draw_s2.append([set_results[i][0], set_results[i][1], set_results[i][2]])
+        elif not (i in support) and set_results[i][2] == 1:
+            draw_n1.append([set_results[i][0], set_results[i][1], set_results[i][2]])
+        elif not (i in support) and set_results[i][2] == -1:
+            draw_n2.append([set_results[i][0], set_results[i][1], set_results[i][2]])
+    plt.scatter([dot[0] for dot in draw_s1], [dot[1] for dot in draw_s1], c='b', marker='o',
+                label="support dots surround by dot1")
+    plt.scatter([dot[0] for dot in draw_s2], [dot[1] for dot in draw_s2], c='r', marker='o',
+                label="support dots surround by dot2")
+    plt.scatter([dot[0] for dot in draw_n1], [dot[1] for dot in draw_n1], c='b', marker='x',
+                label="normal dots surround by dot1")
+    plt.scatter([dot[0] for dot in draw_n2], [dot[1] for dot in draw_n2], c='r', marker='x',
+                label="normal dots surround by dot2")
     plt.title(name)
     plt.savefig(dir + name + ".png")
+    plt.legend()
     plt.show()
 
 
