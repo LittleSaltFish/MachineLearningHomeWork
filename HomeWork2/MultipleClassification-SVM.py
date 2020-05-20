@@ -28,7 +28,7 @@ def Draw(x, y, name):
     plt.ylabel('width')
     plt.title(name)
     plt.legend(loc='best')
-    plt.savefig(name + '.png')
+    plt.savefig('./' + name + '.png')
     plt.show()
 
 
@@ -62,7 +62,7 @@ def DrawErr(x_test, y_test, y_ans):
     plt.xlabel('length')
     plt.ylabel('width')
     plt.title('Iris Error Dots')
-    plt.savefig('ErrorDots.png')
+    plt.savefig('./ErrorDots.png')
     plt.show()
 
 
