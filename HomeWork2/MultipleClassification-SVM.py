@@ -13,7 +13,7 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 
 
-def LoadAndDraw():
+def LoadData():
     iris = load_iris()
     x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.5, random_state=0)
 
@@ -67,7 +67,7 @@ def DrawErr(x_test, y_test, y_ans):
 
 
 def main():
-    x_train, x_test, y_train, y_test = LoadAndDraw()
+    x_train, x_test, y_train, y_test = LoadData()
     Draw(x_train, y_train, 'IrisData-Train')
     Draw(x_test, y_test, 'IrisData-Test')
     y_ans = Classify(x_train, x_test, y_train, y_test)
