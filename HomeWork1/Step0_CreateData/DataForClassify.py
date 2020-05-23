@@ -62,13 +62,15 @@ def DrawAndSaveData(dots, size_a, size_b, name, dir, center_a, center_b, chaos_a
 
 
 def main():
+    import os
+    print (os.getcwd())
     center_a, center_b, chaos_a, chaos_b, size_a, size_b = Init()
     TrainDots = CreatDots(center_a, center_b, chaos_a, chaos_b, size_a, size_b)
     TestDots = CreatDots(center_a, center_b, chaos_a, chaos_b, size_a, size_b)
-    DrawAndSaveData(TrainDots, size_a, size_b, "ClassifyTrainDots", '../Data&Results/Classify/', center_a, center_b,
+    DrawAndSaveData(TrainDots, size_a, size_b, "ClassifyTrainDots", '..//Data&Results//Classify//', center_a, center_b,
                     chaos_a,
                     chaos_b, False)
-    DrawAndSaveData(TestDots, size_a, size_b, "ClassifyTestDots", '../Data&Results/Classify/', center_a, center_b,
+    DrawAndSaveData(TestDots, size_a, size_b, "ClassifyTestDots", '..//Data&Results/Classify//', center_a, center_b,
                     chaos_a,
                     chaos_b, True)
 
