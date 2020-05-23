@@ -15,7 +15,7 @@ from sklearn.model_selection import train_test_split
 
 def LoadData():
     iris = load_iris()
-    x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.5, random_state=0)
+    x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.5, random_state=0) 
 
     return x_train, x_test, y_train, y_test
 
